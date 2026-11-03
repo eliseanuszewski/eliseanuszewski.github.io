@@ -27,8 +27,8 @@
       "url": "https://github.com/eliseanuszewski"
     }
   ],
-  "theme": "clair",
-  "couleur_accent": "#2952CC",
-  "animations": true,
+  "theme": "editorial",
+  "couleur_accent": "#24665B",
+  "animations": false,
   "identifiant_github": "eliseanuszewski"
 }
