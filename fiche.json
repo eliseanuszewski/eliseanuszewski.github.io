@@ -1,22 +1,34 @@
 {
-  "_aide": "Votre fiche d'identité : la seule source de votre page. Remplacez chaque valeur (à droite des deux-points) par la vôtre, ou collez ici la fiche écrite par le Gem « Ma fiche d'entité ». Aide champ par champ : fiche.md. Exemple complet : fiche.exemple.json.",
   "type": "Person",
-  "nom": "Prénom Nom",
-  "phrase_identite": "Prénom Nom est [votre métier] chez [votre employeur], à [votre ville].",
-  "metier": "[Votre métier]",
+  "nom": "Élise Anuszewski",
+  "phrase_identite": "Élise Anuszewski est Product Owner chez AXA France, basée à Lille. Dans le cadre du MBA Marketing Digital & Intelligence Artificielle de De Vinci Executive Education, elle prépare une thèse professionnelle sur les pratiques de sobriété numérique que les Product Owners peuvent intégrer à leur pilotage produit dans les secteurs de la banque et de l’assurance.",
+  "metier": "Product Owner",
   "employeur": {
-    "nom": "[Votre employeur ou votre projet]",
+    "nom": "AXA France",
     "url": ""
   },
-  "ville": "[Votre ville]",
-  "domaines": ["[Domaine 1]", "[Domaine 2]", "[Domaine 3]"],
-  "ce_que_je_fais": "[Deux ou trois phrases : ce que vous faites, pour qui, avec quoi.]",
-  "parcours": "[Une ou deux phrases : d'où vous venez, ce que vous préparez.]",
+  "ville": "Lille",
+  "domaines": [
+    "Product Ownership",
+    "Analyse des besoins utilisateurs",
+    "Gestion et priorisation du backlog",
+    "Expérience utilisateur (UX)",
+    "Sobriété numérique"
+  ],
+  "ce_que_je_fais": "Chez AXA France, Élise Anuszewski contribue à l’évolution d’un produit numérique destiné aux agents et aux courtiers. Elle participe à l’analyse des besoins, à la rédaction des user stories et à la priorisation du backlog, en lien avec les équipes métier et techniques. Sur l’un de ses sujets, elle travaille également à intégrer des principes d’écoconception dans les réflexions produit.",
+  "parcours": "Après plusieurs années d’expérience en design graphique et digital, intégrant les dimensions UI et UX, Élise Anuszewski a engagé une reconversion vers le métier de Product Owner. Elle mobilise aujourd’hui sa sensibilité aux usages et son expérience de la conduite de projets dans le pilotage de produits numériques.",
   "profils": [
-    { "nom": "LinkedIn", "url": "https://www.linkedin.com/in/votre-profil" }
+    {
+      "nom": "LinkedIn",
+      "url": "https://www.linkedin.com/in/%C3%A9lise-anuszewski-2b035b107/"
+    },
+    {
+      "nom": "GitHub",
+      "url": "https://github.com/eliseanuszewski"
+    }
   ],
   "theme": "clair",
   "couleur_accent": "#2952CC",
   "animations": true,
-  "identifiant_github": "IDENTIFIANT"
+  "identifiant_github": "eliseanuszewski"
 }
