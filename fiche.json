@@ -2,6 +2,10 @@
   "type": "Person",
   "nom": "Élise Anuszewski",
   "phrase_identite": "Élise Anuszewski est Product Owner chez AXA France et réside à Lille. Dans le cadre du MBA Marketing Digital & Intelligence Artificielle de De Vinci Executive Education, elle prépare une thèse professionnelle sur les pratiques de sobriété numérique que les Product Owners peuvent intégrer à leur pilotage produit dans les secteurs de la banque et de l’assurance.",
+  "formation": {
+    "nom": "MBA Marketing Digital & Intelligence Artificielle de De Vinci Executive Education",
+    "url": "https://executive.devinci.fr/formations/mba-et-ms/mba-marketing-digital-et-intelligence-artificielle/"
+  },
   "metier": "Product Owner",
   "employeur": {
     "nom": "AXA France",
