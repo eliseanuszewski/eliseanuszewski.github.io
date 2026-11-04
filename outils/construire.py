@@ -825,7 +825,7 @@ def page_html(F, css, police_titre):
           "cette page montre le résultat attendu du TP.</p>" % e(phrase_fictif(F)))
     w('<main class="page" id="contenu">')
     w('  <header class="entete">')
-    w('    <span class="monogramme" aria-hidden="true">%s</span>' % e(initiales(F["nom"])))
+    w('    <img class="portrait" src="portrait.webp" alt="Portrait de %s" width="160" height="160" fetchpriority="high">' % e(F["nom"]))
     w('    <h1 class="nom"><span class="nom-texte">%s</span></h1>' % e(F["nom"]))
     w('    <span class="trait" aria-hidden="true"></span>')
     phrase_html = e(F["phrase_identite"])
@@ -1022,6 +1022,7 @@ def construire(f, url_base, sortie, dossier_themes):
 
     F = faits(f, url_base)
     sortie.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(RACINE / "themes" / "portrait.webp", sortie / "portrait.webp")
     (sortie / "index.html").write_text(page_html(F, css, polices[0] if polices else None), encoding="utf-8")
     (sortie / "moi.md").write_text(moi_md(F), encoding="utf-8")
     (sortie / "llms.txt").write_text(llms_txt(F), encoding="utf-8")

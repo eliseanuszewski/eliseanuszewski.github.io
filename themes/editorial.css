@@ -89,3 +89,15 @@ body {
 @media print {
   body { background-image: none; }
 }
+
+.portrait {
+  display: block;
+  width: clamp(120px, 24vw, 160px);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--fond);
+  box-shadow: 0 0 0 1px var(--ligne), 0 8px 24px rgb(36 102 91 / 10%);
+  margin-bottom: 1.5rem;
+}
