@@ -858,7 +858,7 @@ def page_html(F, css, police_titre):
         w('        <div class="ligne"><dt>%s</dt><dd>%s</dd></div>' % (e(etiquette), dd))
     w("      </dl>")
     w("    </section>")
-    for cle, titre_s, ident in (("ce_que_je_fais", "Ce que je fais", "t-fais"), ("parcours", "Parcours", "t-parcours")):
+    for cle, titre_s, ident in (("ce_que_je_fais", "Ce qu’elle fait", "t-fais"), ("parcours", "Parcours", "t-parcours")):
         if F.get(cle):
             w("")
             w('    <section aria-labelledby="%s">' % ident)
@@ -929,7 +929,7 @@ def moi_md(F):
         else:
             t = valeur
         w("- %s : %s" % (etiquette, t))
-    for cle, titre_s in (("ce_que_je_fais", "Ce que je fais"), ("parcours", "Parcours")):
+    for cle, titre_s in (("ce_que_je_fais", "Ce qu’elle fait"), ("parcours", "Parcours")):
         if F.get(cle):
             w("")
             w("## %s" % titre_s)
