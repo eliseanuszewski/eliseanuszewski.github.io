@@ -57,6 +57,10 @@ class _Lecteur(HTMLParser):
 
     VIDES = {"area", "base", "br", "col", "embed", "hr", "img", "input",
              "link", "meta", "param", "source", "track", "wbr"}
+    BLOCS = {"address", "article", "aside", "blockquote", "br", "dd", "div", "dl",
+             "dt", "fieldset", "figcaption", "figure", "footer", "form", "h1", "h2",
+             "h3", "h4", "h5", "h6", "header", "hr", "li", "main", "nav", "ol",
+             "p", "pre", "section", "table", "td", "th", "tr", "ul"}
     INVISIBLES = {"head", "script", "style", "template", "noscript", "title"}
 
     def __init__(self):
@@ -81,7 +85,8 @@ class _Lecteur(HTMLParser):
             self._tampon = []
         if tag == "a" and a.get("href") and not cache and not self._cache():
             self.liens.append(a["href"].strip())
-        self.morceaux.append(" ")
+        if tag in self.BLOCS:
+            self.morceaux.append(" ")
         if pousser and tag not in self.VIDES:
             self.pile.append((tag, cache))
 
@@ -99,7 +104,8 @@ class _Lecteur(HTMLParser):
             if self.pile[i][0] == tag:
                 del self.pile[i:]
                 break
-        self.morceaux.append(" ")
+        if tag in self.BLOCS:
+            self.morceaux.append(" ")
 
     def handle_data(self, data):
         if self._dans_jsonld:
