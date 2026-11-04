@@ -880,7 +880,7 @@ def page_html(F, css, police_titre):
     if F["profils"]:
         w("")
         w('    <section aria-labelledby="t-ailleurs">')
-        w('      <h2 id="t-ailleurs">Me retrouver ailleurs</h2>')
+        w('      <h2 id="t-ailleurs">La retrouver ailleurs</h2>')
         w('      <ul class="profils">')
         for p in F["profils"]:
             w('        <li><a href="%s" rel="me">%s</a> <span class="adresse">%s</span></li>' % (
@@ -949,7 +949,7 @@ def moi_md(F):
             w("- Adresse : %s" % el["url"])
     if F["profils"]:
         w("")
-        w("## Me retrouver ailleurs")
+        w("## La retrouver ailleurs")
         w("")
         for p in F["profils"]:
             w("- %s : %s" % (p["nom"], p["url"]))
