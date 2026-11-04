@@ -50,7 +50,7 @@ COULEUR_PAR_DEFAUT = "#2952CC"
 # Les champs de fiche.json, dans l'ordre où on les explique (voir fiche.md).
 CHAMPS = [
     "type", "nom", "phrase_identite", "metier", "employeur", "ville", "domaines",
-    "ce_que_je_fais", "parcours", "profils", "entite_liee",
+    "ce_que_je_fais", "parcours", "profils", "entite_liee", "formation",
     "theme", "couleur_accent", "animations", "identifiant_github", "fictif",
 ]
 OBLIGATOIRES = ["nom", "phrase_identite", "metier", "ville", "domaines", "identifiant_github"]
@@ -618,6 +618,17 @@ def valider(fiche, j):
     if re.search(r"(?<!\d)(?:\+33\s?|0)[1-9](?:[\s.-]?\d{2}){4}(?!\d)", tout):
         j.conseil("", "la fiche contient un numéro de téléphone : il sera public. Retirez-le si ce n'est pas voulu.")
 
+    formation = fiche.get("formation")
+    f["formation"] = None
+    if formation:
+        if not isinstance(formation, dict):
+            j.erreur("formation", "la formation doit être un objet.", 'Utilisez les champs "nom" et "url".')
+        else:
+            nom_formation = texte_requis(formation, "nom", j)
+            url_formation = verifier_url(formation.get("url"), "formation.url", j)
+            if nom_formation and url_formation:
+                f["formation"] = {"nom": nom_formation, "url": url_formation}
+
     # Texte du modèle encore présent : un seul conseil par champ, et on s'arrête là.
     modele = False
     for champ in ("nom", "phrase_identite", "metier", "ville"):
@@ -817,7 +828,15 @@ def page_html(F, css, police_titre):
     w('    <span class="monogramme" aria-hidden="true">%s</span>' % e(initiales(F["nom"])))
     w('    <h1 class="nom"><span class="nom-texte">%s</span></h1>' % e(F["nom"]))
     w('    <span class="trait" aria-hidden="true"></span>')
-    w('    <p class="phrase">%s</p>' % e(F["phrase_identite"]))
+    phrase_html = e(F["phrase_identite"])
+    if F.get("formation"):
+        formation = F["formation"]
+        phrase_html = phrase_html.replace(
+            e(formation["nom"]),
+            '<a href="%s">%s</a>' % (e(formation["url"]), e(formation["nom"])),
+            1,
+        )
+    w('    <p class="phrase">%s</p>' % phrase_html)
     w("  </header>")
     w("")
     w('  <div class="corps">')
